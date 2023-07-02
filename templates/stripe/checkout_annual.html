@@ -1,0 +1,58 @@
+{% extends "base.html" %}
+{% load static %}
+
+{% block title %}Dashboard{% endblock %}
+{% block content %}
+
+{% if user.is_authenticated %}
+<div style="background-color: #F2F5F8;">
+    <br>
+    <div class="row justify-content-center">
+        <div class="col-md-2">
+            <div class="list-group">
+                <a href="{% url 'account_settings' %}" class="list-group-item list-group-item-action active">Account
+                    Settings</a>
+                <a href="{% url 'subscription' %}" class="list-group-item list-group-item-action">Subscription</a>
+            </div>
+        </div>
+        <br>
+        <div class="col-md-4">
+            <div class="card">
+                <div class="card-body">
+                    <div class="product">
+                        <div class="row" id="checkout-row">
+                            <div class="col">
+                                1 year of HA app subscription
+                            </div>
+                            <div class="col">
+                                $24.00 / year
+                            </div>
+                        </div>
+                    </div>
+                    <form action="/create-checkout-session/" method="POST">
+                        {% csrf_token %}
+                        <!-- Add a hidden field with the lookup_key of your Price -->
+                        <input type="hidden" name="lookup_key" value="2" />
+                        <button id="checkout-and-portal-button" class="btn btn-primary" type="submit">Checkout</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<br>
+<br>
+<br>
+<br>
+</div>
+{% else %}
+<script>
+    window.location.replace("{% url 'landing' %}")
+</script>
+{% endif%}
+
+
+{% endblock %}
+{% block jquery %}
+
+{% endblock %}

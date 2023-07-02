@@ -1,0 +1,26 @@
+{% extends "base.html" %}
+{% load static %}
+
+{% block title %}Settings{% endblock %}
+{% block content %}
+
+<p>Hello {{ user.email }}</p>
+<p>Your User id {{ user.id }}</p>
+<p>Paid: {{user.active_subscription}}</p>
+<p>Paid until: {{user.paid_end}}</p>
+
+
+
+{% if user.active_subscription or user.trial_used %}
+<a href="{% url 'checkout' %}" class="btn btn-primary">Upgrade/Subscription</a>
+
+{% else %}
+<button class="btn btn-primary" id="start-trial">Start 5 min free trial</button>
+<a href="{% url 'checkout' %}" class="btn btn-primary">Upgrade/Subscription 1 month</a>
+<a href="{% url 'checkout' %}" class="btn btn-primary">Upgrade/Subscription </a>
+{% endif %}
+
+{% endblock %}
+{% block jquery %}
+$.getScript('{% static 'js/settings.js' %}');
+{% endblock %}

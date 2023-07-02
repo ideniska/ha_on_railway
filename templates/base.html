@@ -1,0 +1,271 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <!-- Google tag (gtag.js) -->
+    <script
+      async
+      src="https://www.googletagmanager.com/gtag/js?id=G-9HL8GYKR3H"
+    ></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag() {
+        dataLayer.push(arguments);
+      }
+      gtag("js", new Date());
+
+      gtag("config", "G-9HL8GYKR3H");
+    </script>
+    <meta property="og:title" content="Highlights Activator" />
+    <meta
+      property="og:image"
+      content="https://i.ibb.co/RC6WkPH/hactivator-th2.jpg"
+    />
+    <meta property="og:description" content="" />
+    <meta property="og:url" content="https://www.hactivator.com" />
+    <meta property="og:type" content="website" />
+
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>{% block title %}{% endblock %}</title>
+
+    <link rel="stylesheet" href="{% static 'css/styles.css' %}" />
+
+    <!-- App favicon -->
+    <link rel="shortcut icon" href="{% static 'assets/images/favicon.ico' %}" />
+
+    <!-- Theme Config Js -->
+    <script src="{% static 'assets/js/hyper-config.js' %}"></script>
+
+    <!-- Icons css -->
+    <link
+      href="{% static 'assets/css/icons.min.css' %}"
+      rel="stylesheet"
+      type="text/css"
+    />
+
+    <!-- App css -->
+    <link
+      href="{% static 'assets/css/app-creative.min.css' %}"
+      rel="stylesheet"
+      type="text/css"
+      id="app-style"
+    />
+
+    <!--      Fontawesome icons-->
+    <script
+      src="https://kit.fontawesome.com/d503f91806.js"
+      crossorigin="anonymous"
+    ></script>
+  </head>
+
+  <body>
+    <!-- Begin page -->
+    <div class="wrapper">
+      <!-- ========== Topbar Start ========== -->
+      <div class="navbar-custom topnav-navbar">
+        <div class="container-fluid detached-nav">
+          <!-- Sidebar Menu Toggle Button -->
+          <button class="button-toggle-menu">
+            <i class="mdi mdi-menu"></i>
+          </button>
+
+          <!-- Horizontal Menu Toggle Button -->
+          <button
+            class="navbar-toggle"
+            data-bs-toggle="collapse"
+            data-bs-target="#topnav-menu-content"
+          >
+            <div class="lines">
+              <span></span>
+              <span></span>
+              <span></span>
+            </div>
+          </button>
+
+          <ul class="list-unstyled topbar-menu float-end mb-0">
+            <li class="notification-list">
+              <a
+                class="nav-link"
+                href="javascript:void(0)"
+                id="light-dark-mode"
+              >
+                <i class="ri-moon-line noti-icon"></i>
+              </a>
+            </li>
+
+            <li class="dropdown notification-list">
+              <a
+                class="nav-link dropdown-toggle"
+                data-bs-toggle="dropdown"
+                href="#"
+                role="button"
+                aria-haspopup="false"
+                aria-expanded="false"
+              >
+                <i class="ri-settings-3-line noti-icon"></i>
+              </a>
+              <div
+                class="dropdown-menu dropdown-menu-end dropdown-menu-animated topbar-dropdown-menu profile-dropdown"
+              >
+                <!-- item-->
+                <div class="dropdown-header noti-title">
+                  <h6 class="text-overflow m-0">Welcome, {{ user.email }}!</h6>
+                </div>
+
+                <!-- item-->
+                <a
+                  href="{% url 'account_settings' %}"
+                  class="dropdown-item notify-item"
+                >
+                  <i class="mdi mdi-account-edit me-1"></i>
+                  <span>Settings</span>
+                </a>
+                <a
+                  href="{% url 'subscription' %}"
+                  class="dropdown-item notify-item"
+                >
+                  <i class="mdi mdi-crown me-1"></i>
+                  <span>Membership</span>
+                </a>
+
+                <!-- item-->
+                <a href="{% url 'upload' %}" class="dropdown-item notify-item">
+                  <i class="mdi mdi-cloud-upload me-1"></i>
+                  <span>Upload file</span>
+                </a>
+
+                <!-- item-->
+                <a class="dropdown-item notify-item" id="logout">
+                  <i class="mdi mdi-logout me-1"></i>
+                  <span>Logout</span>
+                </a>
+              </div>
+            </li>
+          </ul>
+        </div>
+      </div>
+      <!-- ========== Topbar End ========== -->
+
+      <!-- ========== Left Sidebar Start ========== -->
+      <div class="leftside-menu">
+        <!-- Sidebar Hover Menu Toggle Button -->
+        <button
+          type="button"
+          class="btn button-sm-hover p-0"
+          data-bs-toggle="tooltip"
+          data-bs-placement="right"
+          title="Show Full Sidebar"
+        >
+          <i class="ri-checkbox-blank-circle-line align-middle"></i>
+        </button>
+
+        <!-- Sidebar -left -->
+        <div class="h-100" id="leftside-menu-container" data-simplebar>
+          <!--- Sidemenu -->
+          <ul class="side-nav">
+            <li class="side-nav-item">
+              <a href="{% url 'dashboard' %}" class="side-nav-link">
+                <i class="uil-home-alt"></i>
+                <span> Quote of the day </span>
+              </a>
+            </li>
+            {% if user.active_subscription %}
+            <li class="side-nav-item">
+              <a href="{% url 'daily' %}" class="side-nav-link">
+                <i class="uil-calender"></i>
+                <span> Daily review </span>
+              </a>
+            </li>
+
+            <li class="side-nav-item">
+              <a href="{% url 'favorite' %}" class="side-nav-link">
+                <i class="ri-star-line"></i>
+                <span> Favorites </span>
+              </a>
+            </li>
+
+            <li class="side-nav-item">
+              <a href="{% url 'by-book-api' %}" class="side-nav-link">
+                <i class="ri-menu-line"></i>
+                <span> My books </span>
+              </a>
+            </li>
+            {% else %}
+            <li class="side-nav-item">
+              <a href="" class="side-nav-link disabled">
+                <i class="uil-calender"></i>
+                <span> Daily review </span><i class="ri-lock-2-line"></i>
+              </a>
+            </li>
+
+            <li class="side-nav-item">
+              <a href="" class="side-nav-link disabled" aria-disabled="true">
+                <i class="ri-star-line"></i>
+                <span> Favorites </span><i class="ri-lock-2-line"></i>
+              </a>
+            </li>
+
+            <li class="side-nav-item">
+              <a href="" class="side-nav-link disabled">
+                <i class="ri-menu-line"></i>
+                <span> My books </span><i class="ri-lock-2-line"></i>
+              </a>
+            </li>
+            {% endif %}
+          </ul>
+          <!--- End Sidemenu -->
+
+          {% if not user.active_subscription %}
+          <!-- Help Box -->
+          <div class="help-box text-white text-center">
+            <img
+              src="{% static 'img/access.png' %}"
+              height="90"
+              alt="Helper Icon Image"
+            />
+            <h5 class="mt-3">Unlimited Access</h5>
+            <p class="mb-3">Upgrade to get access to all features</p>
+            <a href="{% url 'subscription' %}" class="btn btn-secondary btn-sm"
+              >Upgrade</a
+            >
+          </div>
+          {% endif %}
+          <!-- end Help Box -->
+
+          <div class="clearfix"></div>
+        </div>
+      </div>
+      <!-- ========== Left Sidebar End ========== -->
+
+      <!-- ============================================================== -->
+      <!-- Start Page Content here -->
+      <!-- ============================================================== -->
+
+      {% block content %} {% endblock %}
+
+      <!-- ============================================================== -->
+      <!-- End Page content -->
+      <!-- ============================================================== -->
+    </div>
+    <!-- END wrapper -->
+  </body>
+
+  <script src="{% static 'assets/js/vendor.min.js' %}"></script>
+
+  <!-- App js -->
+  <script src="{% static 'assets/js/app.min.js' %}"></script>
+
+  <script src="{% static 'js/index.js' %}"></script>
+
+  <!-- Vector Map js -->
+  <script src="{% static 'assets/vendor/admin-resources/jquery.vectormap/jquery-jvectormap-1.2.2.min.js' %}"></script>
+  <script src="{% static 'assets/vendor/admin-resources/jquery.vectormap/maps/jquery-jvectormap-world-mill-en.js' %}"></script>
+
+  <script>
+    $(document).ready(function () {
+            {% block jquery %} {% endblock jquery %};
+        });
+  </script>
+</html>

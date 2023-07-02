@@ -1,0 +1,84 @@
+{% extends "base.html" %}
+{% load static telegram %}
+
+{% block title %}Settings{% endblock %}
+{% block content %}
+
+{% if user.is_authenticated %}
+<div class="wrapper">
+
+    <!-- ========== Left Sidebar End ========== -->
+    <div class="content-page">
+        <div class="content">
+            <div class="container-fluid">
+                <div class="row">
+                    <div class="page-title-box">
+                        <h4 class="page-title">Account settings</h4>
+                        <div class="col-xxl-6 col-lg-12 order-lg-2 order-xxl-1">
+                            <!-- ========== Quote Card Start ========== -->
+                            <div class="card">
+                                <div class="card-body pb-1">
+                                    <div class="card-body">
+                                        <a href="{% url 'forgot_password' %}">Change password</a>
+                                        <br>
+                                        <br>
+                                        <a class="btn btn-primary" href="{% telegram_deep_link user %}"><i
+                                                class="fa-brands fa-telegram fa-l"></i> Connect
+                                            Telegram
+                                            Bot</a>
+                                        <br>
+                                        <br>
+                                        <p>Notification settigs:</p>
+                                        <table class="table">
+                                            <tbody>
+                                                <tr>
+                                                    <td>Email</td>
+                                                    <td>
+                                                        <select class="form-select" name="Daily email"
+                                                            id="emailSetting">
+
+                                                        </select>
+                                                    </td>
+                                                </tr>
+                                                <tr>
+                                                    <td>Telegram message</td>
+                                                    <td>
+                                                        <select class="form-select" name="Daily Telegram"
+                                                            id="telegramSetting">
+                                                        </select>
+                                                    </td>
+                                                </tr>
+                                            </tbody>
+                                        </table>
+
+                                        <button class="btn btn-primary" id="save-settings">Save</button>
+                                    </div>
+                                </div> <!-- end card-body -->
+                            </div> <!-- end card -->
+                            <div class="d-grid">
+                                <a href="{% url 'subscription' %}" type="button" class="btn btn-lg btn-soft-primary">
+                                    Membership</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!--end row -->
+</div>
+
+
+
+
+{% else %}
+<script>
+    window.location.replace("{% url 'landing' %}")
+</script>
+{% endif%}
+
+
+{% endblock %}
+{% block jquery %}
+$.getScript('{% static 'js/notification_settings.js' %}');
+{% endblock %}

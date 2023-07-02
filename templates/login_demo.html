@@ -1,0 +1,85 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en" data-theme="light" data-layout="topnav" data-topbar-color="dark" data-layout-mode="fluid"
+  data-layout-position="fixed">
+
+<head>
+  <meta charset="utf-8" />
+  <title>Highlights Activator</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta content="A fully featured admin theme which can be used to build CRM, CMS, etc." name="description" />
+
+
+  <!-- App favicon -->
+  <link rel="shortcut icon" href="{% static 'assets/images/favicon.ico' %}">
+
+  <!-- Theme Config Js -->
+  <script src="{% static 'assets/js/hyper-config.js' %}"></script>
+
+  <!-- Icons css -->
+  <link href="{% static 'assets/css/icons.min.css' %}" rel="stylesheet" type="text/css" />
+
+  <!-- App css -->
+  <link href="{% static 'assets/css/app-creative.min.css' %}" rel="stylesheet" type="text/css" id="app-style" />
+
+  <!--      Fontawesome icons-->
+  <script src="https://kit.fontawesome.com/d503f91806.js" crossorigin="anonymous"></script>
+
+  <link rel="stylesheet" href="{% static 'css/styles.css' %}">
+</head>
+
+<body>
+
+  {% if user.is_authenticated %}
+  <script>
+    window.location.replace("{% url 'landing' %}")
+  </script>
+
+  {% else %}
+
+  <div class="container" id="register">
+    <h2>Live demo access</h2>
+
+    <form id="loginForm" class="login" method="POST">
+      <div class="mb-3">
+        <input type="email" name="email" class="form-control" aria-describedby="emailHelp" placeholder="Your email"
+          required>
+      </div>
+      <!-- <div class="mb-3">
+        <input type="password" name="password" class="form-control" placeholder="Password" value="demoUser1234"
+          required>
+      </div> -->
+      <span id="error"></span>
+
+      <!-- <a id="forgot-pass" class="button secondaryAction" href="{% url 'forgot_password' %}">Forgot Password?</a>
+      <div id="register-button"> -->
+
+      <button type="submit" class="btn btn-primary">Log In</button>
+  </div>
+
+  </form>
+  </div>
+
+  {% endif %}
+
+  <script src="{% static 'assets/js/vendor.min.js' %}"></script>
+
+  <!-- App js -->
+  <script src="{% static 'assets/js/app.min.js' %}"></script>
+
+
+  <!-- Vector Map js -->
+  <script src="{% static 'assets/vendor/admin-resources/jquery.vectormap/jquery-jvectormap-1.2.2.min.js' %}"></script>
+  <script
+    src="{% static 'assets/vendor/admin-resources/jquery.vectormap/maps/jquery-jvectormap-world-mill-en.js' %}"></script>
+
+  <script src="https://code.jquery.com/jquery-3.6.0.js" integrity="sha256-H+K7U5CnXl1h5ywQfKtSj8PCmoN9aaq30gDh27Xc0jk="
+    crossorigin="anonymous"></script>
+
+</body>
+
+
+<script src="{% static 'js/login_demo.js' %}"></script>
+
+
+</html>

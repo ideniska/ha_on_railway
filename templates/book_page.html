@@ -1,0 +1,42 @@
+{% extends "base.html" %}
+{% load static %}
+
+{% block title %}Dashboard{% endblock %}
+{% block content %}
+
+
+<div class="content-page">
+    <div class="content">
+        <div class="container-fluid">
+            <div class="row">
+                <div class="page-title-box">
+                    <h4 class="page-title book-title"></h4>
+                    <div class="col-xxl-6 col-lg-12 order-lg-2 order-xxl-1">
+                        <table class="table table-hover table-centered mb-0">
+                            <thead>
+                                <tr>
+                                    <th scope="col">Quote</th>
+                                    <th scope="col">Date added</th>
+                                    <th scope="col">Manage</th>
+                                </tr>
+                            </thead>
+                            <tbody class="datarows">
+                                <tr>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+
+
+{% endblock %}
+{% block jquery %}
+$.getScript('{% static 'js/book_page.js' %}');
+{% endblock %}

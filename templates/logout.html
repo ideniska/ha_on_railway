@@ -1,0 +1,11 @@
+{% extends "base.html" %}
+{% load static %}
+{% block content %}
+
+<button id="confirmLogout" class="primaryAction" type="submit">Logout</button>
+
+{% endblock %}
+
+{% block jquery %}
+$.getScript('{% static 'js/logout.js' %}');
+{% endblock %}

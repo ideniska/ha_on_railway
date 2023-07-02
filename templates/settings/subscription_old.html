@@ -1,0 +1,133 @@
+{% extends "base.html" %}
+{% load static %}
+
+{% block title %}Dashboard{% endblock %}
+{% block content %}
+
+
+<svg xmlns="http://www.w3.org/2000/svg" style="display: none;">
+    <symbol id="check" viewBox="0 0 16 16">
+        <title>Check</title>
+        <path
+            d="M13.854 3.646a.5.5 0 0 1 0 .708l-7 7a.5.5 0 0 1-.708 0l-3.5-3.5a.5.5 0 1 1 .708-.708L6.5 10.293l6.646-6.647a.5.5 0 0 1 .708 0z" />
+    </symbol>
+</svg>
+
+{% if user.is_authenticated %}
+<div style="background-color: #F2F5F8;">
+    <br>
+    <div class="row justify-content-center">
+        <div class="col-md-2">
+            <div class="list-group">
+                <a href="{% url 'account_settings' %}" class="list-group-item list-group-item-action">Account
+                    Settings</a>
+                <a href="{% url 'subscription' %}"
+                    class="list-group-item list-group-item-action active">Subscription</a>
+            </div>
+        </div>
+        <br>
+        <div class="col-md-4">
+            <div class="card">
+                <div class="card-body">
+                    {% if not user.active_subscription %}
+                    <div class="table-responsive">
+                        <table class="table text-center">
+                            <thead>
+                                <tr>
+                                    <th style="width: 34%;"></th>
+                                    <th style="width: 22%;">Free</th>
+                                    <th style="width: 22%;">Pro</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <th scope="row" class="text-start">Show random highlight from your
+                                        library</th>
+                                    <td><svg class="bi" width="24" height="24">
+                                            <use xlink:href="#check" />
+                                        </svg></td>
+                                    <td><svg class="bi" width="24" height="24">
+                                            <use xlink:href="#check" />
+                                        </svg></td>
+                                </tr>
+                                <tr>
+                                    <th scope="row" class="text-start">Easily browse & search your entire highlight
+                                        library</th>
+                                    <td></td>
+                                    <td><svg class="bi" width="24" height="24">
+                                            <use xlink:href="#check" />
+                                        </svg></td>
+                                </tr>
+                                <tr>
+                                    <th scope="row" class="text-start">Email and Telegram message with your daily
+                                        highlights</th>
+                                    <td></td>
+                                    <td><svg class="bi" width="24" height="24">
+                                            <use xlink:href="#check" />
+                                        </svg></td>
+                                </tr>
+                                <tr>
+                                    <th scope="row" class="text-start">Organize your highlights with likes, editing and
+                                        notes</th>
+                                    <td></td>
+                                    <td><svg class="bi" width="24" height="24">
+                                            <use xlink:href="#check" />
+                                        </svg></td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                    <br>
+                    <div class="table-responsive">
+                        <table class="table text-center">
+                            <thead>
+                                <tr>
+                                    <th style="width: 34%;"></th>
+                                    <th style="width: 22%;">Billed monthly</th>
+                                    <th style="width: 22%;">Billed annually</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <th scope="row" class="text-start">Monthly price </th>
+                                    <td>3$ <a href="{% url 'checkout_monthly' %}" class="btn btn-primary">Upgrade to
+                                            monthly
+                                            PRO</a></td>
+                                    <td>2$ <a href="{% url 'checkout_annual' %}" class="btn btn-primary">Upgrade to
+                                            annual
+                                            PRO</a></td>
+                                </tr>
+                            </tbody>
+                        </table>
+                        <button class="btn btn-primary" id="start-trial">Start a free trial (1 week, no credit card
+                            needed)</button>
+                    </div>
+                    {% else %}
+                    <p>Status: <strong>Active (Pro)</strong> <i class="fa-solid fa-circle fa-xs"></i></p>
+                    <p id="paidPeriod">Subscription ends: <strong>{{user.paid_until}}</strong></p>
+                    <form action="/create-portal-session/" method="POST">
+                        {% csrf_token %}
+                        <input type="hidden" id="session-id" name="session_id" value="" />
+                        <button id="checkout-and-portal-button" class="btn btn-primary" type="submit">Manage your
+                            subscription</button>
+                    </form>
+                    {% endif %}
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<br>
+<br>
+<br>
+<br>
+</div>
+{% else %}
+<script>
+    window.location.replace("{% url 'landing' %}")
+</script>
+{% endif%}
+{% endblock %}
+{% block jquery %}
+$.getScript('{% static 'js/settings.js' %}');
+{% endblock %}

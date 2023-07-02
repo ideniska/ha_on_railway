@@ -1,0 +1,113 @@
+{% load static %}
+
+<!doctype html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+
+    <title>{% block title %}{% endblock %}</title>
+
+    <!-- App favicon -->
+    <link rel="shortcut icon" href="{% static 'assets/images/favicon.ico' %}">
+
+    <!-- Theme Config Js -->
+    <script src="{% static 'assets/js/hyper-config.js' %}"></script>
+
+    <!-- Icons css -->
+    <link href="{% static 'assets/css/icons.min.css' %}" rel="stylesheet" type="text/css" />
+
+    <!-- App css -->
+    <link href="{% static 'assets/css/app-creative.min.css' %}" rel="stylesheet" type="text/css" id="app-style" />
+
+    <!--      Fontawesome icons-->
+    <script src="https://kit.fontawesome.com/d503f91806.js" crossorigin="anonymous"></script>
+</head>
+
+<body>
+    <h1>
+        <p class="text-center">Get the most out of what you read</p>
+    </h1>
+    <h4>
+        <p class="text-center">Highlights Activator makes it easy to revisit and learn from your ebook & article
+            highlights.
+        </p>
+    </h4>
+    <div class="text-center text-center-custom">
+        <button id="1button" type="button" class="btn btn-primary">GET STARTED FOR FREE</button>
+    </div>
+
+    <div class="row mb-9 justify-content-center">
+        <div class="col-md-9 center">
+            <img id="main_img" src="{% static 'img/landing_hero.12a1e031294d.png' %}" class="img-fluid" alt="...">
+        </div>
+    </div>
+
+
+    <div class="container-fluid landing">
+        <h1>Here's how <mark>Highlights Activator</mark> works:</h1>
+    </div>
+    </div>
+    </div>
+    <div class="row justify-content-center">
+        <div class="col-md-3" style="backgroung-color:grey;">
+            <h2><i class="fa-solid fa-rotate"></i> Import Highlights</h2>
+            <hr />
+            <p>Sync your highlights from Kindle, Instapaper, Pocket, iBooks, and more.</p>
+        </div>
+        <div class="col-md-3" style="backgroung-color:grey;">
+            <h2><i class="fa-solid fa-rotate"></i> Review</h2>
+            <hr />
+            <p>Review the best parts easily through a daily email & app.</p>
+        </div>
+        <div class="col-md-3" style="backgroung-color:grey;">
+            <h2><i class="fa-solid fa-brain"></i> Remember</h2>
+            <hr />
+            <p>Recall more and grow your knowledge over time.</p>
+        </div>
+    </div>
+
+    <div class="container overflow-hidden">
+        <div class="row justify-content-center">
+            <div class="col-md-4" style="backgroung-color:grey;">
+                <h2>Revisit your highlights</h2>
+                <br>
+                Highlighting is great, but what's the point if you're never going to see any of those highlights again?
+                <br>
+                <br>
+                Highlights Activator lets you quickly liberate your highlights (all into one place), and ensures that
+                you'll
+                actually see and use them.
+            </div>
+            <div class="col-md-4" style="backgroung-color:grey;">
+                <img src="{% static '/img/revisit-highlights.a56141cb1af7.png' %}" alt="...">
+            </div>
+
+        </div>
+        <div class="row justify-content-center">
+            <div class="col-md-4" style="backgroung-color:grey;">
+                <img src="{% static 'img/remember-what.8f22dbd70c26.png' %}" class="img-fluid" alt="...">
+            </div>
+            <div class="col-md-4" style="backgroung-color:grey;">
+                <h2>Remember what you read</h2>
+                <br>
+                How often do you finish a book, only to forget the key ideas two weeks later? We don't remember things
+                by
+                just reading them once.
+                <br>
+                <br>
+                Highlights Activator fixes this using a scientific process called Spaced Repetition. We surface your
+                best
+                highlights back to you at the right times, and let you review them every day with the daily email and
+                app.
+            </div>
+        </div>
+    </div>
+
+</body>
+
+<script src="{% static 'js/index.js' %}"></script>
+
+</html>

@@ -1,0 +1,328 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="en" data-theme="light" data-layout="topnav" data-topbar-color="dark" data-layout-mode="fluid"
+    data-layout-position="fixed">
+    
+
+<head>
+    
+    <meta property="og:image" content="https://i.ibb.co/RC6WkPH/hactivator-th2.jpg"/>
+    <meta property="og:image:url" content="https://i.ibb.co/RC6WkPH/hactivator-th2.jpg"/>
+    <meta property="og:image:secure_url" content="https://i.ibb.co/RC6WkPH/hactivator-th2.jpg" />
+    <meta property="og:title" content="Highlights Activator" />
+    <meta property="og:description" content="Highlights Activator is a tool that helps you make the
+    most of your reading by allowing you to easily review and learn from the highlights you have
+    made in your Kindle." />
+    
+
+    <meta charset="utf-8" />
+    <title>Highlights Activator</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+
+    <!-- App favicon -->
+    <link rel="shortcut icon" href="{% static 'assets/images/favicon.ico' %}">
+
+    <!-- Theme Config Js -->
+    <script src="{% static 'assets/js/hyper-config.js' %}"></script>
+
+    <!-- Icons css -->
+    <link href="{% static 'assets/css/icons.min.css' %}" rel="stylesheet" type="text/css" />
+
+    <!-- App css -->
+    <link href="{% static 'assets/css/app-creative.min.css' %}" rel="stylesheet" type="text/css" id="app-style" />
+
+    <!--      Fontawesome icons-->
+    <script src="https://kit.fontawesome.com/d503f91806.js" crossorigin="anonymous"></script>
+
+
+</head>
+
+<body>
+
+    <!-- NAVBAR START -->
+    <nav class="navbar navbar-expand-lg py-lg-3 navbar-dark">
+        <div class="container">
+
+            <!-- logo -->
+            <!-- end logo -->
+
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavDropdown"
+                aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
+                <i class="mdi mdi-menu"></i>
+            </button>
+
+            <!-- menus -->
+            <div class="collapse navbar-collapse" id="navbarNavDropdown">
+
+                <!-- left menu -->
+                <ul class="navbar-nav me-auto align-items-center">
+                    <li class="nav-item mx-lg-1">
+                        <a class="nav-link active" href="">Home</a>
+                    </li>
+                    <li class="nav-item mx-lg-1">
+                        <a class="nav-link" href="#features">Features</a>
+                    </li>
+                    <li class="nav-item mx-lg-1">
+                        <a class="nav-link" href="#prices">Pricing</a>
+                    </li>
+                </ul>
+
+                <!-- right menu -->
+                <ul class="navbar-nav ms-auto align-items-center">
+                    <li class="nav-item me-0">
+                        {% if user.is_authenticated %}
+                        <a href="{% url 'dashboard' %}" target="_blank" class="nav-link d-lg-none">Dashboard</a>
+                        <a href="{% url 'dashboard' %}" target="_blank"
+                            class="btn btn-sm btn-light rounded-pill d-none d-lg-inline-flex">
+                            Dashboard
+                        </a>
+
+                        {% else %}
+                        <a target="_blank" class="nav-link d-lg-none" id="demoLogin2">Live Demo</a>
+                        <a target="_blank" id="demoLogin"
+                            class="btn btn-sm btn-warning rounded-pill d-none d-lg-inline-flex">
+                            Live Demo
+                        </a>
+                        <a href="{% url 'login_page' %}" target="_blank" class="nav-link d-lg-none">Sign In</a>
+                        <a href="{% url 'login_page' %}" target="_blank"
+                            class="btn btn-sm btn-light rounded-pill d-none d-lg-inline-flex">
+                            Sign In
+                        </a>
+                    </li>
+                    {% endif %}
+                </ul>
+
+            </div>
+        </div>
+    </nav>
+    <!-- NAVBAR END -->
+
+    <!-- START HERO -->
+    <section class="hero-section">
+        <div class="container">
+            <div class="row align-items-center">
+                <div class="col-md-5">
+                    <div class="mt-md-4">
+                        <!-- <div>
+                            <span class="text-white-50 ms-1">Welcome to your highlights</span>
+                        </div> -->
+                        <h2 class="text-white fw-normal mb-4 mt-3 hero-title">
+                            Get the most out of what you read
+                        </h2>
+
+                        <p class="mb-4 font-16 text-white-50">Highlights Activator is a tool that helps you make the
+                            most of your reading by allowing you to easily review and learn from the highlights you have
+                            made in your Kindle.</p>
+
+                        <a href="#prices" class="btn btn-success">Get started <i
+                                class="mdi mdi-arrow-right ms-1"></i></a>
+                    </div>
+                </div>
+                <div class="col-md-5 offset-md-2">
+                    <div class="text-md-end mt-3 mt-md-0">
+                        <img src="{% static 'assets/images/svg/startup.svg' %}" alt="" class="img-fluid" />
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- END HERO -->
+
+    <!-- START HOW IT WORKS -->
+    <section class="py-5">
+        <div class="container">
+            <div class="row py-4">
+                <div class="col-lg-12">
+                    <div class="text-center">
+                        <h1 class="mt-0"><i class="mdi mdi-infinity"></i></h1>
+                        <h3>
+                            <h1>Here's how <span class="text-primary">Highlights Activator</span> works:</h1>
+                        </h3>
+                    </div>
+                </div>
+            </div>
+
+            <div class="row">
+                <div class="col-lg-4 col-md-6">
+                    <div class="text-center p-2 p-sm-3" id="features">
+                        <div class="avatar-sm m-auto">
+                            <span class="avatar-title bg-primary-lighten rounded-circle">
+                                <i class="uil uil-sync text-primary font-24"></i>
+                            </span>
+                        </div>
+                        <h4 class="mt-3">Import Highlights</h4>
+                        <p class="text-muted mt-2 mb-0">Sync your highlights from Kindle and more.
+                        </p>
+                    </div>
+                </div>
+
+                <div class="col-lg-4 col-md-6">
+                    <div class="text-center p-2 p-sm-3">
+                        <div class="avatar-sm m-auto">
+                            <span class="avatar-title bg-primary-lighten rounded-circle">
+                                <i class="uil uil-backward text-primary font-24"></i>
+                            </span>
+                        </div>
+                        <h4 class="mt-3">Review</h4>
+                        <p class="text-muted mt-2 mb-0">Easily review the most important parts of your reading through a
+                            daily email and app.
+                        </p>
+                    </div>
+                </div>
+
+                <div class="col-lg-4 col-md-6">
+                    <div class="text-center p-2 p-sm-3">
+                        <div class="avatar-sm m-auto">
+                            <span class="avatar-title bg-primary-lighten rounded-circle">
+                                <i class="uil uil-file-redo-alt text-primary font-24"></i>
+                            </span>
+                        </div>
+                        <h4 class="mt-3">Remember</h4>
+                        <p class="text-muted mt-2 mb-0">Enhance your memory retention and expand your knowledge over
+                            time.
+                        </p>
+                    </div>
+                </div>
+
+
+            </div>
+    </section>
+    <!-- END HOW IT WORKS -->
+
+    <!-- START FEATURES -->
+    <section class="py-5">
+        <div class="container">
+            <div class="row mt-2 py-5 align-items-center">
+                <div class="col-lg-5 col-md-6">
+                    <img src="{% static 'assets/images/svg/features-1.svg' %}" class="img-fluid" alt="">
+                </div>
+                <div class="col-lg-6 offset-md-1 col-md-5">
+                    <h3 class="fw-normal">Revisit your highlights</h3>
+                    <div class="mt-4">
+                        Highlighting is a useful tool for emphasizing important parts of your reading, but it's only
+                        effective if you <strong>regularly</strong> review those highlights.
+                        <br>
+                        <br>
+                        Highlights Activator collects all of your highlights in one place and ensures that you have the
+                        opportunity to review and use them regularly. This way, you can get the most out of your
+                        reading.
+                    </div>
+                </div>
+            </div>
+
+            <div class="row pb-3 pt-5 align-items-center">
+                <div class="col-lg-6 col-md-5">
+                    <h3 class="fw-normal">Remember what you read</h3>
+                    <div class="mt-4">
+                        Have you ever finished a book only to forget the main ideas a few weeks later? Simply reading
+                        something once is often not enough for us to remember it. Highlights Activator helps you review
+                        and retain the key ideas from your reading on a regular basis.
+                    </div>
+                </div>
+                <div class="col-lg-5 col-md-6 offset-md-1">
+                    <img src="{% static 'assets/images/svg/features-2.svg' %}" class="img-fluid" alt="">
+                </div>
+            </div>
+
+        </div>
+    </section>
+    <!-- END FEATURES -->
+
+    <!-- START PRICING -->
+    <section class="py-5 bg-light-lighten border-top border-bottom border-light">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-12">
+                    <div class="text-center">
+                        <h1 class="mt-0"><i class="mdi mdi-tag-multiple"></i></h1>
+                    </div>
+                </div>
+            </div>
+
+            <div class="row mt-5 pt-3" id="prices">
+                <div class="col-md-6">
+                    <div class="card card-pricing">
+                        <div class="card-body text-center">
+                            <p class="card-pricing-plan-name fw-bold text-uppercase">Free </p>
+                            <i class="card-pricing-icon ri-user-line text-primary"></i>
+                            <h2 class="card-pricing-price">$0</h2>
+                            <ul class="card-pricing-features">
+                                <li>Show random highlight from
+                                    your
+                                    library</li>
+                            </ul>
+                            <a href="{% url 'register_page' %}" class="btn btn-primary mt-4 mb-2 rounded-pill">Get
+                                started</a>
+                        </div>
+                    </div>
+                    <!-- end Pricing_card -->
+                </div>
+                <!-- end col -->
+
+                <div class="col-md-6">
+                    <div class="card card-pricing ">
+                        <div class="card-body text-center">
+                            <p class="card-pricing-plan-name fw-bold text-uppercase">Pro</p>
+                            <i class="card-pricing-icon ri-briefcase-line text-primary"
+                                style="background-color: lightgreen;"></i>
+                            <h2 class="card-pricing-price">$24 <span>/ year</span></h2>
+                            <ul class="card-pricing-features">
+                                <li>Show random highlight from
+                                    your
+                                    library</li>
+                                <li>Easily browse & search your
+                                    entire highlight
+                                    library</li>
+                                <li>Email and Telegram message
+                                    with your daily
+                                    highlights</li>
+                                <li>Organize your highlights with
+                                    likes, editing and
+                                    notes</li>
+                            </ul>
+                            <a href="{% url 'register_page' %}" class="btn btn-primary mt-4 mb-2 rounded-pill">Try it
+                                for free</a>
+                        </div>
+                    </div>
+                    <!-- end Pricing_card -->
+                </div>
+                <!-- end col -->
+
+
+            </div>
+
+        </div>
+    </section>
+    <!-- END PRICING -->
+
+
+
+
+    <!-- START CONTACT -->
+
+    <!-- END CONTACT -->
+
+    <!-- START FOOTER -->
+    <footer class="bg-dark py-5">
+        <div class="container">
+            <div class="row">
+            </div>
+
+            <div class="row">
+
+            </div>
+        </div>
+    </footer>
+    <!-- END FOOTER -->
+</body>
+<!-- Vendor js -->
+<script src="{% static 'assets/js/vendor.min.js' %}"></script>
+
+<!-- App js -->
+<script src="{% static 'assets/js/app.min.js' %}"></script>
+
+<script src="{% static 'js/index.js' %}"></script>
+
+</html>

@@ -1,0 +1,335 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="en" >
+    
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta property="og:image" content="https://i.ibb.co/RC6WkPH/hactivator-th2.jpg"/>
+    <meta property="og:image:url" content="https://i.ibb.co/RC6WkPH/hactivator-th2.jpg"/>
+    <meta property="og:image:secure_url" content="https://i.ibb.co/RC6WkPH/hactivator-th2.jpg" />
+    <meta property="og:title" content="Highlights Activator" />
+    <meta property="og:description" content="Highlights Activator is a tool that helps you make the
+    most of your reading by allowing you to easily review and learn from the highlights you have
+    made in your Kindle." />
+    
+
+
+    <title>Highlights Activator</title>
+
+
+      <!--      Bootstrap-->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0/dist/css/bootstrap.min.css" rel="stylesheet"
+    integrity="sha384-gH2yIJqKdNHPEq0n4Mqa/HGKIhSkIHeL5AyhkYV8i59U5AR6csBvApHHNl/vI1Bx" crossorigin="anonymous">
+
+    <link rel="stylesheet" href="{% static 'css/landing_styles.css' %}" />
+
+    <!-- App favicon -->
+    <link rel="shortcut icon" href="{% static 'assets/images/favicon.ico' %}">
+
+    <!--      Fontawesome icons-->
+    <script src="https://kit.fontawesome.com/d503f91806.js" crossorigin="anonymous"></script>
+    <svg xmlns="//www.w3.org/2000/svg" version="1.1" class="svg-filters" style="display:none;">
+        <defs>
+          <filter id="marker-shape">
+            <feTurbulence type="fractalNoise" baseFrequency="0 0.15" numOctaves="1" result="warp" />
+            <feDisplacementMap xChannelSelector="R" yChannelSelector="G" scale="30" in="SourceGraphic" in2="warp" />
+          </filter>
+        </defs>
+      </svg>
+
+
+</head>
+
+<body>
+    <!-- NAVBAR START -->
+    <nav class="navbar navbar-expand-lg bg-body-tertiary flex-nowrap">
+        <div class="container-fluid">
+          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+          </button>
+          <div class="collapse navbar-collapse" id="navbarNav">
+            <ul class="navbar-nav mr-auto">
+                <li class="nav-item">
+                    <a class="nav-link" href="#features" style="margin-right:32px">Features</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="#prices">Pricing</a>
+
+                </li>
+            </ul>
+            {% comment %} <a class="navbar-brand mx-auto d-block" href="#">
+                <img src="{% static '/img/ha_logo2.png' %}" alt="ha_logo" height="45">
+            </a> {% endcomment %}
+            <img class="d-none d-lg-block mx-auto" src="{% static '/img/ha_logo2.png' %}" alt="" height="45">
+
+            <ul class="navbar-nav ml-auto" id="navbarRightGroup">
+                <li class="nav-item me-0">
+                    {% if user.is_authenticated %}
+                    <a href="{% url 'dashboard' %}" target="_blank" class="nav-link d-lg-none">Dashboard</a>
+                    <a href="{% url 'dashboard' %}" target="_blank"
+                        class="btn btn-outline-dark d-none d-lg-inline-flex rounded-pill">
+                        Dashboard
+                    </a>
+
+                    {% else %}
+                    <a target="_blank" class="nav-link d-lg-none" id="demoLogin2">Live Demo</a>
+                    <a target="_blank" id="demoLogin"
+                        class="btn btn-outline-dark d-none d-lg-inline-flex rounded-pill">
+                        Live Demo
+                    </a>
+                    <a href="{% url 'login_page' %}" target="_blank" class="nav-link d-lg-none">Sign In</a>
+                    <a href="{% url 'login_page' %}" target="_blank"
+                        class="btn btn-outline-dark d-none d-lg-inline-flex rounded-pill">
+                        Sign In
+                    </a>
+                </li>
+                {% endif %}
+            </ul>
+          </div>
+        </div>
+        <img class="d-block d-lg-none mx-auto" id="logo-on-collapse" src="{% static '/img/ha_logo2.png' %}" alt="" height="45">
+      </nav>
+
+    <!-- START 1 DISPLAY -->
+    <section class="hero-section">
+        <div class="container">
+            <div class="row align-items-center" style="padding-bottom:64px; ">
+                <div class="col-md-5">
+                    <div>
+                        <!-- <div>
+                            <span class="text-white-50 ms-1">Welcome to your highlights</span>
+                        </div> -->
+                        <h2 class="mb-4 mt-3 hero-title">
+                            Get the most out of what you read
+                        </h2>
+
+                        <p >Esily review and learn from the highlights you have
+                            made in your Kindle.</p>
+
+                            <a target="_blank" class="button-background-move" id="demoLogin1">Live Demo1</a>
+                    </div>
+                </div>
+                <div class="col-md-5" style="margin-left:64px">
+                        <img src="{% static 'img/main_img.jpeg' %}" alt="" class="img-fluid" />
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- END HERO -->
+
+    <!-- START HOW IT WORKS -->
+    <section class="pt-4 pb-5">
+        <div class="container">
+            <div class="row py-4">
+                    <div class="text-center">                        
+                        <h1>Here's how <span class="realistic-marker-highlight">Highlights Activator</span>  works:</h1>
+                    </div>
+                    <a target="_blank" class="button-background-move" id="demoLogin">Live Demo2</a>
+            </div>
+            <div class="row">
+                <div class="col-lg-4 col-md-6">
+                    <div class="text-center p-2 p-sm-3">
+                        <div class="avatar-sm m-auto">
+                                <i class="uil uil-sync text-primary font-24"></i>
+                        </div>
+                        <i class="fa-sharp fa-solid fa-rotate fa-2xl"></i>
+                        <h4 class="mt-3">Import Highlights</h4>
+                        <p class="text-muted mt-2 mb-0">Sync your highlights from Kindle and more.
+                        </p>
+                    </div>
+                </div>
+
+                <div class="col-lg-4 col-md-6">
+                    <div class="text-center p-2 p-sm-3">
+                        <i class="fa-sharp fa-solid fa-backward fa-2xl"></i>
+                        <h4 class="mt-3">Review</h4>
+                        <p class="text-muted mt-2 mb-0">Easily review the most important parts of your reading through a
+                            daily email and app.
+                        </p>
+                    </div>
+                </div>
+
+                <div class="col-lg-4 col-md-6">
+                    <div class="text-center p-2 p-sm-3">
+                        <div class="avatar-sm m-auto">
+                            <span class="avatar-title bg-primary-lighten rounded-circle">
+                                <i class="uil uil-file-redo-alt text-primary font-24"></i>
+                            </span>
+                        </div>
+                        <i class="fa-sharp fa-solid fa-bookmark fa-2xl"></i>
+                        <h4 class="mt-3">Remember</h4>
+                        <p class="text-muted mt-2 mb-0">Enhance your memory retention and expand your knowledge over
+                            time.
+                        </p>
+                    </div>
+                </div>
+
+
+            </div>
+    </section>
+    <!-- END HOW IT WORKS -->
+
+    <!-- START FEATURES -->
+    <section class="py-3">
+        <div class="container">
+            <div class="row  align-items-center" id="features">
+                {% comment %} <div class="col-lg-7 col-md-6"> {% endcomment %}
+                    <div class="col-md" >
+                    <img src="{% static 'img/ha_dashboard.png' %}" class="img-fluid" alt="" style="width:90%">
+                </div>
+                {% comment %} <div class="col-lg-5 col-md-7"> {% endcomment %}
+                    <div class="col-md" >
+                        <h3 class="fw-normal">Maximize the value of reading</h3>
+                        <div class="mt-4" style="max-width:572px">
+                            Have you ever finished a book only to forget the main ideas a few weeks later? Simply reading
+                            something once is often not enough for us to remember it. Highlights Activator helps you review
+                            and retain the key ideas from your reading on a regular basis.
+                        </div>
+                </div>
+            </div>
+
+            <div class="row mt-2 py-5 align-items-center">
+                {% comment %} <div class="col-lg-5 col-md-7" > {% endcomment %}
+                    <div class="col-md">
+                        <h3 class="fw-normal" style="max-width:572px">Replace your Facebook/Twitter feed with something better</h3>
+                        <div class="mt-4" style="max-width:572px">
+                            Visit the Daily section of your highlights to review the most insightful ideas you saved for yourself.
+                        </div>
+                </div>
+                {% comment %} <div class="col-lg-7 col-md-6"> {% endcomment %}
+                    <div class="col-md" >
+                    <img src="{% static 'img/ha_daily.gif' %}" alt="" class="img-fluid"  style="width:90%; border-radius:6px; box-shadow:3px 3px 5px rgba(0, 0, 0, 0.4)">
+                </div>
+            </div>
+
+            <div class="row mt-2 py-5 align-items-center" id="features">
+                <div class="col-md">
+                    <img src="{% static 'img/ha_email.png' %}" class="img-fluid"  alt="" style="width:80%;border-radius:6px; box-shadow:3px 3px 5px rgba(0, 0, 0, 0.4)">
+                </div>
+                <div class="col-md">
+                    <h3 class="fw-normal">Create your daily email digest</h3>
+                    <div class="mt-4" style="max-width:572px">
+                        Highlights Activator will send you regular emails with favorite and random quotes from your library.
+                    </div>
+                </div>
+            </div>
+
+            <div class="row mt-2 py-5 align-items-center">
+                <div class="col-md">
+                    <h3 class="fw-normal">Manage all your books in one place</h3>
+                    <div class="mt-4">
+                        Select which books to make visible and manage highlights for each book.
+                    </div>
+                </div>
+                <div class="col-md">
+                        <img src="{% static 'img/ha_by_book.gif' %}" alt="" style="width:90%;border-radius:6px; box-shadow:3px 3px 5px rgba(0, 0, 0, 0.4)">
+                </div>
+
+            </div>
+
+        </div>
+        
+    </section>
+</section>
+    <!-- END FEATURES -->
+    <section class="py-5 mt-5" style="background-color:#FFE01B;">
+        <div class="container" style="">
+            <div class="row">
+                <h3 class="text-center">+ Telegram Bot to get your daily quote, highlights share and more!</h3>
+            </div>
+        </div>
+    </section>
+
+    <!-- START PRICING -->
+    <section class="py-5 bg-light-lighten ">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-12">
+                    <div class="text-center">
+                        <h1 class="mt-0"><i class="mdi mdi-tag-multiple"></i></h1>
+                    </div>
+                </div>
+            </div>
+
+            <div class="row mt-5 pt-3" id="prices">
+                <div class="col-md-6">
+                    <div class="card card-pricing">
+                        <div class="card-body">
+                            <p class="card-pricing-plan-name fw-bold text-uppercase">Free </p>
+                            {% comment %} <i class="fa-regular fa-user fa-2xl"></i> {% endcomment %}
+                            <h2 class="card-pricing-price">$0</h2>
+                            <ul class="no-bullets">
+                                <li>Show random highlight from
+                                    your
+                                    library</li>
+                            </ul>
+                            <a href="{% url 'register_page' %}" class="btn btn-primary mt-4 mb-2 rounded-pill" style="background-color: #FFE01B; border:none; color:black;">Get
+                                started</a>
+                        </div>
+                    </div>
+                    <!-- end Pricing_card -->
+                </div>
+                <!-- end col -->
+
+                <div class="col-md-6">
+                    <div class="card card-pricing ">
+                        <div class="card-body">
+                            <p class="card-pricing-plan-name fw-bold text-uppercase">Pro</p>
+                            <i class="card-pricing-icon ri-briefcase-line text-primary"
+                                style="background-color: lightgreen;"></i>
+                            <h2 class="card-pricing-price">$24 <span>/ year</span></h2>
+                            <ul class="no-bullets">
+                                <li>Show random highlight from
+                                    your
+                                    library</li>
+                                <li>Easily browse & search your
+                                    entire highlight
+                                    library</li>
+                                <li>Email and Telegram message
+                                    with your daily
+                                    highlights</li>
+                                <li>Organize your highlights with
+                                    likes, editing and
+                                    notes</li>
+                            </ul>
+                            <a href="{% url 'register_page' %}" class="btn btn-primary mt-4 mb-2 rounded-pill" style="background-color: #FFE01B; border:none; color:black;">Start free trial</a>
+                        </div>
+                    </div>
+                    <!-- end Pricing_card -->
+                </div>
+                <!-- end col -->
+
+
+            </div>
+
+        </div>
+    </section>
+    <!-- END PRICING -->
+
+
+    <!-- START FOOTER -->
+    <footer class="bg-dark py-5 mt-5">
+        <div class="container-fluid">
+            <div class="row ">
+              <div class="col">
+                <p style="padding-left:64px; color:white; text-decoration: underline; font-size:20px">Contact us</p>
+              </div>
+              <div class="col text-end">
+                <p style="padding-right:64px; color:white; font-size:20px">©2023 All Rights Reserved.</p>              </div>
+            </div>
+          </div>
+    </footer>
+    <!-- END FOOTER -->
+</body>
+<!-- Vendor js -->
+<script src="{% static 'assets/js/vendor.min.js' %}"></script>
+
+<!-- App js -->
+<script src="{% static 'assets/js/app.min.js' %}"></script>
+
+<script src="{% static 'js/index.js' %}"></script>
+
+</html>

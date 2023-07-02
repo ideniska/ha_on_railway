@@ -1,0 +1,32 @@
+{% extends "base.html" %}
+{% load static %}
+
+{% block title %}Dashboard{% endblock %}
+{% block content %}
+<div style="background-color: #F2F5F8;">
+    <br>
+    <div class="row justify-content-center">
+        <div class="col-md-2">
+            <div class="list-group">
+                <a href="{% url 'dashboard' %}" class="list-group-item list-group-item-action" aria-current="true">
+                    Quote of the day
+                </a>
+                <a href="{% url 'daily' %}" class="list-group-item list-group-item-action">Daily review</a>
+                <a href="{% url 'favorite' %}" class="list-group-item list-group-item-action active">Favorites</a>
+                <a href="{% url 'by-book-api' %}" class="list-group-item list-group-item-action">My books</a>
+                <a href="{% url 'by_tag' %}" class="list-group-item list-group-item-action">By tag</a>
+            </div>
+        </div>
+        <br>
+        <div class="col-md-4">
+        </div>
+    </div>
+    <br>
+    <br>
+    <br>
+    <br>
+</div>
+{% endblock %}
+{% block jquery %}
+$.getScript('{% static 'js/favorites.js' %}');
+{% endblock %}

@@ -1,0 +1,115 @@
+{% load static %}
+
+<!doctype html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  <!--      Google Fonts-->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link
+    href="https://fonts.googleapis.com/css2?family=Merriweather&family=Montserrat:wght@400;800&family=Sacramento&family=Ubuntu:wght@700&display=swap"
+    rel="stylesheet">
+
+  <title>{% block title %}{% endblock %}</title>
+
+  <!--      Bootstrap-->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0/dist/css/bootstrap.min.css" rel="stylesheet"
+    integrity="sha384-gH2yIJqKdNHPEq0n4Mqa/HGKIhSkIHeL5AyhkYV8i59U5AR6csBvApHHNl/vI1Bx" crossorigin="anonymous">
+
+
+  <link rel="stylesheet" href="{% static 'css/styles.css' %}">
+
+  <!--      Fontawesome icons-->
+  <script src="https://kit.fontawesome.com/d503f91806.js" crossorigin="anonymous"></script>
+</head>
+
+<body>
+  <div id="fb-root"></div>
+  <script async defer crossorigin="anonymous" src="https://connect.facebook.net/en_US/sdk.js#xfbml=1&version=v14.0"
+    nonce="GCC90AvO"></script>
+  <nav class="navbar navbar-expand-md navbar-dark bg-dark">
+    <div class="container-fluid justify-content-between">
+      <a class="navbar-brand" href="/">Highlights Activator</a>
+      <button class="navbar-toggler" type="button" data-toggle="collapse" data-bs-target="#navbar-nav"
+        aria-controls="navbar-nav" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbar-nav">
+        {% if user.is_authenticated %}
+        <ul class="navbar-nav ms-auto">
+          <li class="nav-item">
+
+            <a class="nav-link" href="{% url 'dashboard' %}">Dasboard ></a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="{% url 'account_settings' %}">Settings</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="{% url 'upload' %}">Upload</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" id="logout">Logout</a>
+        </ul>
+        {% else %}
+        <ul class="navbar-nav ms-auto">
+          <li class="nav-item dropdown">
+            <a class="nav-link dropdown-toggle" id="signin" data-bs-toggle="dropdown" aria-expanded="false"
+              data-bs-auto-close="outside">Sign In</a>
+            <div class="dropdown-menu dropdown-menu-end">
+              <form id="loginForm" class="login px-4 py-3" method="POST">
+                <div class="mb-3">
+                  <input type="email" name="email" class="form-control" aria-describedby="emailHelp" placeholder="Email"
+                    required>
+                </div>
+                <div class="mb-3">
+                  <input type="password" name="password" class="form-control" placeholder="Password" required
+                    aria-describedby="passwordHelpBlock">
+                </div>
+                <span id="error"></span>
+                <button type="submit" class="btn btn-primary">Sign In</button>
+              </form>
+              <div class="dropdown-divider"></div>
+              <a class="dropdown-item" href="{% url 'register_page' %}">New around here? Sign up</a>
+              <a class="dropdown-item" href="{% url 'forgot_password' %}">Forgot password?</a>
+            </div>
+
+          </li>
+        </ul>
+        {% endif %}
+      </div>
+    </div>
+  </nav>
+  {% if not user.active_subscription and user.is_authenticated %}
+  <div class="nonmember-warning">Please renew your <a href="{% url 'settings' %}">subscription</a> to
+    use all features
+  </div>
+  {% endif %}
+
+  {% block content %}
+  {% endblock %}
+
+  <script src="https://code.jquery.com/jquery-3.6.0.js" integrity="sha256-H+K7U5CnXl1h5ywQfKtSj8PCmoN9aaq30gDh27Xc0jk="
+    crossorigin="anonymous"></script>
+
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0/dist/js/bootstrap.bundle.min.js"
+    integrity="sha384-A3rJD856KowSb7dwlZdYEkO39Gagi7vIsF0jrRAoQmDKKtQBHUuLZ9AsSv4jD4Xa"
+    crossorigin="anonymous"></script>
+</body>
+
+<script>
+
+</script>
+
+<script src="{% static 'js/index.js' %}"></script>
+
+<script>$(document).ready(function () {
+    {% block jquery %} {% endblock jquery %};
+  });</script>
+
+
+
+</html>

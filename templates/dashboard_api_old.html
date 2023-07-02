@@ -1,0 +1,75 @@
+{% extends "base.html" %}
+{% load static %}
+
+{% block title %}Dashboard{% endblock %}
+{% block content %}
+
+{% if user.is_authenticated %}
+<div style="background-color: #F2F5F8;">
+    <br>
+    <div class="row justify-content-center">
+        <div class="col-md-2">
+            <div class="list-group">
+                <a href="#" class="list-group-item list-group-item-action active" aria-current="true">
+                    Quote of the day
+                </a>
+                {% if user.active_subscription %}
+                <a href="{% url 'daily' %}" class="list-group-item list-group-item-action">Daily review</a>
+                <a href="{% url 'favorite' %}" class="list-group-item list-group-item-action">Favorites</a>
+                <a href="{% url 'by-book-api' %}" class="list-group-item list-group-item-action">My books</a>
+                <a href="{% url 'by_tag' %}" class="list-group-item list-group-item-action">By tag</a>
+                {% else %}
+                <a href="" class="list-group-item list-group-item-action disabled">Daily review</a>
+                <a href="" class="list-group-item list-group-item-action disabled">Favorites</a>
+                <a href="" class="list-group-item list-group-item-action disabled">My books</a>
+                <a href="" class="list-group-item list-group-item-action disabled">By tag</a>
+                {% endif %}
+            </div>
+        </div>
+        <br>
+        <div class="col-md-4">
+            <div class="card">
+                <div class="card-header">
+
+                    Quote of the day
+                </div>
+                <div class="card-body">
+                    <div class="book-cover"></div>
+                    <h5 class="card-title"></h5>
+                    <p class="card-text"></p>
+                    <blockquote class="blockquote mb-0">
+                        <p id="quote-text"></p>
+                        <footer class="blockquote-footer"><cite title="Source Title">
+                        </footer>
+                        <div class="comment-box"></div>
+                        <div class="comment-box-buttons">
+                            <button type="button" id="cancel" class="btn btn-outline-secondary">Cancel</button>
+                            <button type="button" id="save" class="btn btn-outline-success">Save</button>
+                        </div>
+                    </blockquote>
+                    <br>
+                    <div>
+                        <a href="{% url 'dashboard' %}" class="btn btn-primary">SHOW NEW RANDOM QUOTE</a>
+                        <div class="like-button" style="display: inline-block;"></div>
+                        <div class="dashboard-delete" style="display: inline-block;"></div>
+                        <div class="dashboard-edit" style="display: inline-block;"></div>
+                        <div class="dashboard-share" style="display: inline-block;"></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <br>
+    <br>
+    <br>
+    <br>
+</div>
+{% else %}
+<script>
+    window.location.replace("{% url 'landing' %}")
+</script>
+{% endif%}
+{% endblock %}
+{% block jquery %}
+$.getScript('{% static 'js/dashboard.js' %}');
+{% endblock %}

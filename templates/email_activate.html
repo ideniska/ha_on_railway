@@ -1,0 +1,11 @@
+{% extends "base.html" %}
+{% load static %}
+{% block content %}
+
+<p>Thank you! Your account is activated.</p>
+
+{% endblock %}
+
+{% block jquery %}
+$.getScript('{% static 'js/activate_user.js' %}');
+{% endblock %}

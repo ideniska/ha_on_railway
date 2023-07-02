@@ -1,0 +1,18 @@
+{% extends "base.html" %}
+{% load static %}
+
+{% block title %}Success{% endblock %}
+{% block content %}
+
+<body>
+    <section>
+        <div class="product Box-root">
+            <div class="description Box-root">
+                <h3>Subscription is live!</h3>
+            </div>
+        </div>
+        <a href="{% url 'dashboard' %}" class="btn btn-primary">Dasboard</a>
+    </section>
+</body>
+
+{% endblock %}

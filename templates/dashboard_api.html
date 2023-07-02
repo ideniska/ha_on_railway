@@ -1,0 +1,87 @@
+{% extends "base.html" %}
+{% load static %}
+
+{% block title %}Dashboard{% endblock %}
+{% block content %}
+
+
+<div class="content-page">
+    <div class="content">
+        <div class="container-fluid">
+            <div class="row">
+                <div class="page-title-box">
+                    <h4 class="page-title">Quote of the day <a href="#" data-bs-toggle="tooltip"
+                            data-bs-custom-class="info-tooltip" data-bs-placement="right"
+                            data-bs-title="Carefully picked random quote from your library">(?)</a>
+                    </h4>
+                    <div class="col-xxl-6 col-lg-12 order-lg-2 order-xxl-1 order-sm-2">
+                        <!-- ========== Quote Card Start ========== -->
+                        <div class="card">
+                            <div class="card-body pb-1">
+                                <div class="d-flex">
+                                    <div class="w-100">
+                                        <div class="dropdown float-end text-muted">
+                                            <a href="#" class="dropdown-toggle arrow-none card-drop"
+                                                data-bs-toggle="dropdown" aria-expanded="false">
+                                                <i class="mdi mdi-dots-horizontal"></i>
+                                            </a>
+                                            <div class="dropdown-menu dropdown-menu-end">
+                                                <!-- item-->
+                                                <a class="dropdown-item" id="dashboard-edit">Edit</a>
+                                                <!-- item-->
+                                                <a class="dropdown-item" id="dashboard-delete">Delete</a>
+                                            </div>
+                                        </div>
+                                        <h5 class="m-0" id="book-title"></h5>
+                                        <p class="text-muted" id="date-added"><small></small></p>
+                                    </div>
+                                </div>
+
+                                <hr class="m-0" />
+                                <p class="card-text"></p>
+                                <div class="font-16 text-center text-dark my-3">
+                                    <i class="mdi mdi-format-quote-open font-20"></i><span id="quote-text"> </span>
+                                </div>
+                                <p class="comment-text"></p>
+                                <div class="comment-box"></div>
+
+                                <hr class="m-0" />
+
+                                <div class="my-1">
+                                    <a id="like-button" class="btn btn-sm btn-link text-muted ps-0"></a>
+                                    <!-- <a class="btn btn-sm btn-link text-muted"><i class='uil uil-comments-alt'></i>
+                                        Comment</a> -->
+                                    <a class="btn btn-sm btn-link text-muted" id="shareButton" data-bs-toggle="popover"
+                                        data-bs-content="Link copied"><i class='uil uil-share-alt'></i>
+                                        Share</a>
+                                    <!-- <div class="popup"><span class="popuptext" id="sharePopup">Link copied</span>
+                                    </div> -->
+                                    <span class="comment-box-buttons"><a
+                                            class="btn btn-sm btn-link text-muted comment-box-buttons" id="cancel"><i
+                                                class='uil uil-times'></i>
+                                            Cancel</a>
+                                        <a class="btn btn-sm btn-link text-muted comment-box-buttons" id="save"><i
+                                                class='uil uil-bookmark'></i>
+                                            Save</a></span>
+                                </div>
+                            </div> <!-- end card-body -->
+                        </div> <!-- end card -->
+                        <div class="d-grid">
+                            <a href="{% url 'dashboard' %}" type="button" class="btn btn-lg btn-soft-primary">
+                                <i class="ri-refresh-line"></i></a>
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+
+{% endblock %}
+{% block jquery %}
+$.getScript('{% static 'js/dashboard.js' %}');
+{% endblock %}

@@ -1,0 +1,45 @@
+{% extends "base.html" %}
+{% load static %}
+
+{% block title %}Dashboard{% endblock %}
+{% block content %}
+
+<!-- ========== Left Sidebar End ========== -->
+<div class="content-page">
+    <div class="content">
+        <div class="container-fluid">
+            <div class="row">
+                <div class="page-title-box">
+                    <h4 class="page-title"></h4>
+                    <div class="col-xxl-6 col-lg-12 order-lg-2 order-xxl-1">
+
+                        <div class="infinite-container">
+                            <div class="dashboard-books">
+                                <table class="table table-hover table-centered mb-0" id="table">
+                                    <thead>
+                                        <tr>
+                                            <th scope=" col">Title</th>
+                                            <th scope="col">Highlights</th>
+                                            <th scope="col">Visibilty</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody class="datarows" data-href="/api/by-book/?page=1&page_size=20">
+                                        <tr>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+{% endblock %}
+{% block jquery %}
+$.getScript('{% static 'js/by_book.js' %}');
+{% endblock %}

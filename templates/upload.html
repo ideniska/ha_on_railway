@@ -1,0 +1,52 @@
+{% extends "base.html" %}
+{% load static %}
+
+{% block content %}
+
+<div class="content-page">
+  <div class="content">
+    <div class="container upload">
+
+      <div class="row justify-content-center">
+        <div class="col-md-3">
+          <span id="upload-screenshots">
+            <img class="img-fluid" src="{% static '/img/Click-on-Documents-folder-from-Kindle-drive.png' %}" alt="">
+            <img class="img-fluid" src="{% static '/img/Open-the-My-Clippings-file.png' %}" alt="">
+          </span>
+        </div>
+
+        <div class="col-md-4">
+          <h3>How to import your Kindle notes?</h3>
+          <p>First, connect your Kindle to your Mac or Windows PC using the provided USB cable. Now, go to Finder on
+            your
+            Mac or File Explorer on your PC and open the “Kindle” file directory. Go to the <strong>“Documents”</strong>
+            folder.</p>
+          <p>Here, search for the <strong>“My Clippings.txt”</strong> file.</p>
+          <p>You can drag it to "Choose file" area below or click and choose it.</p>
+
+          <form id="upload-form" method="POST" enctype="multipart/form-data">
+            <div class="mb-4">
+              <select class="form-select" name="type" id="type">
+                <option selected value="kindle">Kindle</option>
+                <option value="other">Other</option>
+              </select>
+              <br>
+              <input class="form-control" type="file" name="file" id="file" required>
+            </div>
+            <span id="upload-error"></span>
+            <button type="submit" class="btn btn-primary">Upload</button>
+          </form>
+        </div>
+
+      </div>
+    </div>
+  </div>
+</div>
+
+
+{% endblock %}
+
+
+{% block jquery %}
+$.getScript('{% static 'js/upload.js' %}');
+{% endblock %}

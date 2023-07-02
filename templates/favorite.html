@@ -1,0 +1,29 @@
+{% extends "base.html" %}
+{% load static %}
+
+{% block title %}Favorites{% endblock %}
+{% block content %}
+
+
+<!-- ========== Left Sidebar End ========== -->
+<div class="content-page">
+    <div class="content">
+        <div class="container-fluid">
+            <div class="row">
+                <div class="page-title-box">
+                    <h4 class="page-title">Your favorite quotes</h4>
+                    <div class="col-xxl-6 col-lg-12 order-lg-2 order-xxl-1">
+
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+{% endblock %}
+{% block jquery %}
+$.getScript('{% static 'js/favorites.js' %}');
+{% endblock %}

@@ -1,0 +1,49 @@
+{% extends "base.html" %}
+{% load static %}
+
+
+{% block title %}Your notes feed{% endblock %}
+{% block content %}
+<div style="background-color: #F2F5F8;">
+    <br>
+    <div class="row justify-content-center">
+        <div class="col-md-2">
+            <div class="list-group">
+                <a href="{% url 'dashboard' %}" class="list-group-item list-group-item-action" aria-current="true">
+                    Random quote
+                </a>
+                <a href="{% url 'daily' %}" class="list-group-item list-group-item-action">Daily review</a>
+                <a href="{% url 'favorite' %}" class="list-group-item list-group-item-action">Favorites</a>
+                <a href="{% url 'by-book-api' %}" class="list-group-item list-group-item-action active">My books</a>
+                <a href="{% url 'by_tag' %}" class="list-group-item list-group-item-action">By tag</a>
+            </div>
+        </div>
+        <br>
+        <div class="col-md-4">
+            <div>
+                <h3 class="book-title"></h3>
+            </div>
+            <table class="table table-hover table-bordered">
+                <thead>
+                    <tr>
+                        <th scope="col">Quote</th>
+                        <th scope="col">Date added</th>
+                        <th scope="col">Manage</th>
+                    </tr>
+                </thead>
+                <tbody class="datarows">
+                    <tr>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+    <br>
+    <br>
+    <br>
+    <br>
+</div>
+{% endblock %}
+{% block jquery %}
+$.getScript('{% static 'js/book_page.js' %}');
+{% endblock %}
