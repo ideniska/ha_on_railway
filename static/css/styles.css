@@ -1,0 +1,327 @@
+/*Headings*/
+h1 {
+    font-family: "Montseratt";
+    font-weight: bold;
+    font-size: 3.5rem;
+}
+
+h4 {
+    font-family: "Ubuntu";
+    font-size: 1.4rem;
+    padding-bottom: 0.5rem;
+}
+
+/*Navigation bar*/
+.navbar-brand-custom {
+    font-family: "Ubuntu";
+    font-size: 1.8rem;
+}
+
+.navbar {
+    font-family: "Ubuntu";
+}
+
+/* .navbar-brand {
+    margin-left: 25%;
+}
+
+.navbar-nav {
+    margin-right: 25%;
+}
+
+*/
+.nonmember-warning {
+
+    padding: 10px;
+
+    color: #059;
+    background-color: #BEF;
+    text-align: center;
+}
+
+
+/*Padding*/
+.landing {
+    padding: 1% 12.6%;
+}
+
+.text-center-custom {
+    padding-bottom: 2rem;
+}
+
+.row {
+    padding-bottom: 4rem;
+}
+
+@media (min-width: 300px) {
+    .container-sm {
+        max-width: 400px;
+    }
+}
+
+#random-quote-block {
+    background-color: #F2F5F8;
+}
+
+#logout {
+    background-color: #222529;
+
+}
+
+.btn-outline-light {
+    --btn-font-family: "Ubuntu";
+    --bs-btn-hover-color: #C8C8C9;
+    --bs-btn-hover-bg: #222529;
+    --bs-btn-border-color: #222529;
+    --bs-btn-color: #9B9D9F;
+    --bs-btn-hover-border-color: #222529;
+}
+
+.register-block {
+    margin-top: 30px;
+}
+
+.upload {
+    padding-top: 5%;
+}
+
+/* #upload-screenshots {
+    width: auto;
+} */
+
+/* .dashboard-books {
+    max-height: 450px;
+    overflow: hidden;
+}
+
+
+#show-more {
+    margin-top: 10px;
+} */
+
+
+#checkout-row {
+    padding-bottom: 1rem;
+}
+
+.dashboard-books {
+    border-radius: 6px;
+    background-color: white;
+    overflow: hidden;
+}
+
+.table {
+    --bs-table-hover-bg: #f8f9fa;
+}
+
+
+/* LIKE */
+.fa-heart-o {
+    color: #9B9D9F;
+    cursor: pointer;
+
+}
+
+.fa-heart {
+    color: #9B9D9F;
+    cursor: pointer;
+
+}
+
+#like {
+    text-align: center;
+}
+
+.like-button {
+    padding-left: 20px;
+}
+
+.fa-ban {
+    padding-top: 15px;
+    color: red;
+    cursor: pointer;
+}
+
+.carousel-control-next,
+.carousel-control-prev {
+    width: 7%;
+}
+
+.card-body {
+    padding: 34px;
+}
+
+#fav-delete {
+    padding-left: 40%;
+}
+
+#fav-dropdown {
+    padding-left: 40%;
+}
+
+.fa-circle {
+    color: green;
+}
+
+.dashboard-delete {
+    padding-left: 11%;
+}
+
+.dashboard-share {
+    padding-left: 8%;
+}
+
+/* #daily-delete {
+    padding-left: 40%;
+} */
+
+.fa-share-nodes {
+    color: grey;
+    cursor: pointer;
+}
+
+.fa-pen-to-square {
+    color: grey;
+    cursor: pointer;
+}
+
+#daily-dropdown {
+    padding-left: 40%;
+}
+
+
+#book-page-dropdown {
+    padding-top: 15px;
+    text-align: center;
+}
+
+.dashboard-edit {
+    padding-left: 5%;
+}
+
+.comment-box {
+    width: auto;
+    border: #9B9D9F;
+    border-radius: 7px;
+    background: #FEFAE0;
+    visibility: hidden;
+    padding-bottom: 10px;
+    margin-bottom: 10px;
+
+}
+
+.comment-box-buttons {
+    visibility: hidden;
+    height: 0;
+    padding-left: 18%;
+}
+
+.uil-times {
+    color: red;
+}
+
+.uil-bookmark {
+    color: green;
+}
+
+.book-cover {
+    size: 30px;
+    border-radius: 3px;
+}
+
+
+/* Login pop up */
+/* .login-popup.active {
+    position: absolute;
+    top: 5%;
+    left: 75%;
+    opacity: 1;
+    width: 380px;
+    padding: 20px 30px;
+    background: #fff;
+    box-shadow: 2px 2px 5px 5px rgba(0, 0, 0, 0.15);
+    border-radius: 10px;
+} */
+
+/* .dropdown-menu.show {
+    right: 95%;
+} */
+
+#register {
+    max-width: 400px;
+    margin-top: 5%;
+}
+
+#forgot-pass {
+    text-align: left;
+}
+
+.popup {
+    position: relative;
+    display: inline-block;
+    cursor: pointer;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+}
+
+.popup .popuptext {
+    visibility: hidden;
+    width: 160px;
+    background-color: #555;
+    color: #fff;
+    text-align: center;
+    border-radius: 6px;
+    padding: 8px 0;
+    position: absolute;
+    z-index: 1;
+    bottom: 125%;
+    left: 50%;
+    margin-left: -80px;
+}
+
+/* Popup arrow */
+.popup .popuptext::after {
+    content: "";
+    position: absolute;
+    top: 100%;
+    left: 50%;
+    margin-left: -5px;
+    border-width: 5px;
+    border-style: solid;
+    border-color: #555 transparent transparent transparent;
+}
+
+.popup .show {
+    visibility: visible;
+    -webkit-animation: fadeIn 1s;
+    animation: fadeIn 1s;
+}
+
+.popup .noshow {
+    visibility: hidden;
+    -webkit-animation: fadeIn 1s;
+    animation: fadeIn 1s;
+}
+
+/* Add animation (fade in the popup) */
+@-webkit-keyframes fadeIn {
+    from {
+        opacity: 0;
+    }
+
+    to {
+        opacity: 1;
+    }
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+    }
+
+    to {
+        opacity: 1;
+    }
+}
