@@ -19,6 +19,7 @@ $(function () {
     $("#loginForm").submit(loginHandler);
     $("#logout").click(logoutHandler);
     $("#demoLogin").click(demologinHandler);
+    $("#demoLogin1").click(demologinHandler);
     $("#demoLogin2").click(demologinHandler);
 });
 
